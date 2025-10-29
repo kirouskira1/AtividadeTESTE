@@ -249,29 +249,29 @@ class TestCadastroPamella(unittest.TestCase):
 
     def test_05_action_chains_chat_mensagem_rapida(self):
         """TESTE 5: ActionChains - Chat → Mensagem rápida + Enter"""
-        print("\n=== TESTE 5: ActionChains - Chat → Mensagem rápida ===")
+        print("\nTeste 5: Chat - mensagem rápida")
         
-        # COMEÇA DO ZERO - Ir direto para Chat
-        print("\n1. Começando no Chat...")
+        # Ir direto para a página de chat
+        print("Abrindo a página de chat...")
         self.driver.get("http://localhost:5174/chat-detail.html")
         time.sleep(2)
-        print("✓ Chat carregado")
+        print("Página de chat carregada")
         
         # Demonstrar ActionChains com hover
-        print("\n2. Demonstrando ActionChains com hover...")
+        print("Fazendo hover em um elemento da página...")
         actions = ActionChains(self.driver)
         try:
             elementos = self.driver.find_elements(By.TAG_NAME, "div")
             if elementos:
                 actions.move_to_element(elementos[0]).perform()
                 time.sleep(1)
-                print("✓ Hover com ActionChains executado")
+                print("Hover executado")
         except:
-            print("✓ ActionChains demonstrado")
+            print("ActionChains demonstrado")
         
-        # Enviar mensagem RAPIDAMENTE com Enter
-        print("\n3. Enviando mensagem RÁPIDA + Enter...")
-        mensagem = "Olá! O valor do aluguel é R$ 1.900 As garantias que aceitamos são caução e fiador."
+        # Enviar mensagem rápida com Enter
+        print("Enviando mensagem...")
+        mensagem = "Olá! O valor do aluguel é R$ 1.900. As garantias aceitas são caução e fiador."
         
         campo_encontrado = False
         try:
@@ -285,7 +285,7 @@ class TestCadastroPamella(unittest.TestCase):
                         time.sleep(0.5)  # Rápido
                         campo.send_keys(Keys.RETURN)
                         time.sleep(1)
-                        print(f"✓ Mensagem enviada RÁPIDA: '{mensagem}'")
+                        print(f"Mensagem enviada: '{mensagem}'")
                         campo_encontrado = True
                         break
                 except:
@@ -302,19 +302,19 @@ class TestCadastroPamella(unittest.TestCase):
                             time.sleep(0.5)  # Rápido
                             textarea.send_keys(Keys.RETURN)
                             time.sleep(1)
-                            print(f"✓ Mensagem enviada RÁPIDA: '{mensagem}'")
+                            print(f"Mensagem enviada: '{mensagem}'")
                             campo_encontrado = True
                             break
                     except:
                         continue
             
             if not campo_encontrado:
-                print(f"✓ Mensagem simulada RÁPIDA: '{mensagem}'")
+                print(f"Mensagem simulada: '{mensagem}'")
                 
         except Exception as e:
-            print(f"✓ Mensagem simulada RÁPIDA: '{mensagem}'")
+            print(f"Mensagem simulada: '{mensagem}'")
         
-        print("TESTE 5 CONCLUÍDO!\n")
+        print("Teste 5 concluído.\n")
         
         # Pausa adicional no final do teste 5
         print("Aguardando para finalizar...")
