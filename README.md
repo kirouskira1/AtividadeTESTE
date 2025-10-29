@@ -1,57 +1,28 @@
-# React + TypeScript + Vite
+# Projeto de Testes Automatizados (Selenium)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto tem uma aplicação web simples e uma suíte de testes em Python usando Selenium. A ideia é validar o fluxo de cadastro e a navegação entre páginas.
 
-Currently, two official plugins are available:
+Tecnologias usadas:
+- React + TypeScript (Vite)
+- Python + Selenium
+- WebDriver (Chrome)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Como rodar o projeto:
+1) Instalar dependências do frontend
+   - `npm install`
+2) Iniciar o servidor
+   - `npm run dev -- --port 5174`
+   - A aplicação vai abrir em `http://localhost:5174/`
+3) Instalar dependências dos testes (Python)
+   - `python -m pip install -r requirements.txt`
+4) Executar todos os testes
+   - `python executar_testes.py`
+5) Executar somente o último teste (fluxo completo)
+   - `python executar_testes.py --ultimo`
 
-## Expanding the ESLint configuration
+Observações:
+- Os testes usam a página `http://localhost:5174/register.html`.
+- Se você preferir rodar em outra porta (ex.: 5173), ajuste as URLs nos arquivos de teste.
+- Mensagens do Chrome/DevTools podem aparecer no terminal; não atrapalham os testes.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Qualquer dúvida, é só rodar os comandos acima que tudo funciona.
